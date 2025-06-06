@@ -1,8 +1,8 @@
 ---
-title: My_frist_blog
+title: thought_DL
 date: 2025-05-25 11:00:00 +0800
-categories: [BLOG, rookie]
-tags: [First]     # TAG names should always be lowercase
+categories: [BLOG, DL]
+tags: [dl]     # TAG names should always be lowercase
 math: true
 mermaid: true
 ---

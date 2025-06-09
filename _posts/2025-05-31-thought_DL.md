@@ -78,4 +78,4 @@ def numerical_gradient(f, x):#f(x)接受二维数组作为输入
 
 ## a simple two_layers neural network
 
-![image-20250607184008242](/Users/luomeng/Library/Application Support/typora-user-images/image-20250607184008242.png)
+![image-20250607184008242](/Users/luomeng/Documents/GitHub/SimonLo2002.github.io/assets/image-20250607184008242.png)

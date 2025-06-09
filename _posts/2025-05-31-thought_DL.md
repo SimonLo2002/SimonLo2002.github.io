@@ -74,7 +74,7 @@ def numerical_gradient(f, x):#f(x)接受二维数组作为输入
 >
 > writeonly 仅写入模式
 
-![image-20250607184113976](/Users/luomeng/Library/Application Support/typora-user-images/image-20250607184113976.png)
+![image-20250607184113976](/assets/image-20250607184113976.png)
 
 ## a simple two_layers neural network
 

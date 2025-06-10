@@ -1,8 +1,8 @@
 ---
-title: thought_math
+title: thought_DL
 date: 2025-05-31 14:00:00 +0800
 categories: [BLOG, DL]
-tags: [math]     # TAG names should always be lowercase
+tags: [DL]     # TAG names should always be lowercase
 math: true
 mermaid: true
 ---
@@ -79,3 +79,6 @@ def numerical_gradient(f, x):#f(x)接受二维数组作为输入
 ## a simple two_layers neural network
 
 ![image-20250607184008242](/assets/image-20250607184008242.png)
+
+
+

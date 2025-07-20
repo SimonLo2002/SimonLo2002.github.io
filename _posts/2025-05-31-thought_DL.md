@@ -9,11 +9,38 @@ mermaid: true
 
 # 激活函数
 
-激活函数会将输入信号的总和，例如$a = w1*x1 + w2*x2 + b$，转换为输出信号。激活函数必须使用非线性函数，如阶跃函数，sigmoid函数或者ReLu函数，深度学习的核心是**多层嵌套的非线性变换**。每一层的神经元通过非线性激活函数（如 ReLU、Sigmoid 等）对输入进行非线性映射，再通过多层叠加形成高度复杂的复合函数。
+激活函数会将输入信号的总和，例如$a = w1\cdot{x1} + w2\cdot{x2} + b$，转换为输出信号。激活函数必须使用非线性函数，如阶跃函数，sigmoid函数或者ReLu函数，深度学习的核心是==多层嵌套的非线性变换==。每一层的神经元通过非线性激活函数（如 ReLU、Sigmoid 等）对输入进行非线性映射，再通过多层叠加形成高度复杂的复合函数。
 
-The activation function will transform the sum of the input signal, such as $a = w1*x1 + w2*x2 + b$, into output signal. The activation 
+## 常见的激活函数
 
+sigmoid 函数是一种常见的激活函数，其数学表达式为：$sigmoid(x) = \dfrac{1}{1+e^{-x}}$。从函数形式来看，它能够将任意实数输入映射到 (0,1) 区间内，当输入值趋近于正无穷时，函数值趋近于 1；当输入值趋近于负无穷时，函数值趋近于 0，其函数曲线呈现出光滑的 S 形。
 
+sigmoid函数可以引入非线性变换，使网络具备学习复杂非线性关系的能力。不过，sigmoid 函数存在一些缺点，比如当输入值的绝对值较大时，函数的导数趋近于 0，容易导致梯度消失问题，影响网络的训练效率。
+
+```python
+#sigmoid函数
+def sigmoid(x):
+    return 1/(1 + np.exp(-x))
+```
+
+在ReLU函数中, 当输入 *x*≥0 时，输出 *x*；当 *x*<0 时，输出 0。
+
+```python
+#ReLU函数
+def ReLU(x):
+    return max(x,0)
+```
+
+ReLU函数解决了梯度消失问题，Sigmoid在输入绝对值较大时导数趋近于 0（梯度消失），而 ReLU 在 *x*>0 时导数恒为 1，梯度可稳定传播。同时，ReLU运算仅需判断符号和取最大值，无需指数运算（对比 Sigmoid 的 *e*−*x* 计算），更适合大规模网络。
+
+```python
+#softmax函数
+def softmax_imporved(x):
+    x1 = x - np.max(x)
+    return np.exp(x1)/np.exp(x1).sum()
+```
+
+softmax 函数是深度学习中常用的激活函数，主要用于多分类问题，将模型的输出转换为概率分布。在代码实现中，softmax_imporved(x)先通过`x1 = x - np.max(x)`对输入进行平移，避免计算指数时因数值过大导致溢出（例如，若 *x* 中元素很大，`e**x`可能超出计算机数值范围。最终输出的每个元素值在 (0,1) 之间，且所有元素之和为 1，符合概率分布的性质。
 
 # 学习算法的实现
 
@@ -207,7 +234,9 @@ iters_num = 100  # 适当设定循环的次数
 train_size = x_train.shape[0]
 batch_size = 100
 learning_rate = 0.1
+
 iter_per_epoch = max(train_size / batch_size, 1)
+#epoch指将整个训练数据集完整地过一遍模型的过程
 ```
 
 ```python

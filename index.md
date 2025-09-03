@@ -16,4 +16,4 @@ My research interests include:
 - Genetics
 - Deep Learning
 
-Feel free to check out my CV [Here](your-cv-link.pdf).
+Feel free to check out my CV [Here](/assets/CV_Simon.pdf).
